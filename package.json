@@ -1,0 +1,29 @@
+{
+  "name": "eastonyangxu.github.io",
+  "version": "1.0.0",
+  "description": "博客、随笔",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node --max_old_space_size=4096 ./node_modules/vuepress/cli.js dev docs",
+    "build": "node --max_old_space_size=4096 ./node_modules/vuepress/cli.js build docs",
+    "deploy": "cd ./bin && sh deploy.sh || { echo 'Deploy failed' ; exit 1; }"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eastonyangxu/eastonyangxu.github.io.git"
+  },
+  "author": "eastonyangxu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eastonyangxu/eastonyangxu.github.io/issues"
+  },
+  "homepage": "https://github.com/eastonyangxu/eastonyangxu.github.io#readme",
+  "devDependencies": {
+    "dayjs": "^1.11.7",
+    "vuepress": "^1.9.9",
+    "vuepress-plugin-medium-zoom": "^1.1.9",
+    "vuepress-plugin-one-click-copy": "^1.0.6",
+    "vuepress-plugin-sitemap": "^2.3.1",
+    "vuepress-theme-vdoing": "^1.12.8"
+  }
+}
