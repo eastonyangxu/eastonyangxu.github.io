@@ -1,0 +1,46 @@
+{
+  "workbench.colorTheme": "Default Dark+",
+  // 保存时自动格式化
+  "editor.formatOnType": true,
+  "editor.formatOnSave": true,
+
+  "editor.tabSize": 2,
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  // 安装 vetur 插件
+  "[vue]": {
+    "editor.defaultFormatter": "octref.vetur"
+  },
+
+  // Stylus Supremacy 插件(格式化styl) https://thisismanta.github.io/stylus-supremacy/
+  "stylusSupremacy.insertColons": true, // 是否插入冒号
+  "stylusSupremacy.insertSemicolons": false, // 是否插入分好
+  "stylusSupremacy.insertBraces": false, // 是否插入大括号
+  "stylusSupremacy.insertNewLineAroundImports": false, // import之后是否换行
+  "stylusSupremacy.insertNewLineAroundBlocks": false, // 两个选择器中是否换行
+  "stylusSupremacy.insertLeadingZeroBeforeFraction": false,
+  "[stylus]": {
+    "editor.formatOnType": false,
+    "editor.formatOnSave": false
+  }
+}
