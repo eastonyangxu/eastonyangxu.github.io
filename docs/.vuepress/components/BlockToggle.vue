@@ -6,14 +6,14 @@ export default {
     // 时间设置长一点，防止页面刷新元素加载不出来
     setTimeout(() => {
       this.addExpand(40);
-    }, 500);
+    }, 1000);
   },
   watch: {
     $route(to, from) {
       if (to.path != from.path || this.$route.hash == "") {
         setTimeout(() => {
           this.addExpand(40);
-        }, 20);
+        }, 200);
       }
     },
   },
