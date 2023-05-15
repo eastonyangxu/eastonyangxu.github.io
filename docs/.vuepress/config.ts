@@ -13,7 +13,6 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
   // head样式
   head: [
     ["link", { rel: "icon", href: "/light.png" }],
-    ["link", { rel: "manifest", href: "/manifest.json" }],
     [
       "link",
       {
