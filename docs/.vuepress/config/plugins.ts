@@ -13,7 +13,7 @@ export default <UserPlugins>[
   [
     "vuepress-plugin-zooming", // 放大图片
     {
-      selector: ".theme-vdoing-content img:not(.no-zoom)", // 排除class是no-zoom的图片
+      selector: ".theme-vdoing-content img:not(.no-zoom) not(.outbond-svg)", // 排除class是no-zoom的图片
       options: {
         bgColor: "rgba(0,0,0,0.6)",
       },
