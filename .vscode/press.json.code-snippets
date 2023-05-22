@@ -1,0 +1,67 @@
+{
+	// Place your 全局 snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+  "VuePress Template": {
+    "scope": "vue",
+    "prefix": "press",
+    "body": [
+      "<template>",
+        "<div>",
+          "<div class=\"web-output\"></div>",
+          "<div style=\"width: 100%\">",
+            "<div class=\"language-html -N line-numbers-mode\">",
+              "<pre class=\"language-html\"><code ref=\"code\"></code></pre>",
+            "</div>",
+          "</div>",
+        "</div>",
+      "</template>",
+
+      "<script>",
+      "import Prism from \"prismjs\";",
+      "export default {",
+        "data() {",
+          "return {};",
+        "},",
+        "computed: {",
+          "setCode() {",
+            "this.$refs[\"code\"].innerHTML = Prism.highlight(",
+              "this.updateHtml(),",
+              "Prism.languages.html",
+            ");",
+          "},",
+        "},",
+        "methods: {",
+          "updateHtml() {",
+            "var text = \"\";",
+            "return text;",
+          "},",
+        "},",
+        "mounted() {",
+          "setTimeout(() => {",
+            "this.setCode;",
+          "});",
+        "},",
+      "};",
+      "</script>"
+    ],
+    "description": "vuepress交互笔记"
+  }
+}
+
+
+
+
