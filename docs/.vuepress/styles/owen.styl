@@ -4,11 +4,29 @@
 .web-output
   overflow-y: auto;
   border: 1px solid rgba(160, 160, 160, 0.3);
+  margin: .5em 0;
 
 // 处理 el-input 长度限制显示遮挡问题
 .el-textarea .el-input__count
   background-color: transparent
   bottom: -2.5em
+
+// el选择框自定义样式
+.el-input__inner
+  background-color: transparent
+  border: 1px solid rgba(160, 160, 160, 0.3)
+  height: 2em
+
+.el-input__icon
+  line-height: 2em
+
+// 案例-外部链接样式
+.outbond-example-a
+  float: right
+  font-size: .3em
+  .outbond-svg
+    height: 2.5em
+    width: 2.5em
 
 // 外部链接svg图片
 .outbond-svg
