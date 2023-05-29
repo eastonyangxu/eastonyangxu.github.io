@@ -19,7 +19,7 @@
   color: #eee;
 }
 .align-self-select {
-  width: 7rem;
+  width: 5rem;
 }
 .align-self-button {
   height: 2rem;

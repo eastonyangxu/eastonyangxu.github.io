@@ -18,7 +18,7 @@
   color: #eee;
 }
 .flex-flex-select {
-  width: 15rem;
+  width: 8rem;
 }
 .flex-flex-button {
   height: 2rem;
