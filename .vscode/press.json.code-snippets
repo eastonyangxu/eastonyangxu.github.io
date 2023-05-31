@@ -37,14 +37,14 @@
           "return {};",
         "},",
         "computed: {",
+        "},",
+        "methods: {",
           "setCode() {",
             "this.$refs[\"code\"].innerHTML = Prism.highlight(",
               "this.updateHtml(),",
               "Prism.languages.html",
             ");",
           "},",
-        "},",
-        "methods: {",
           "updateHtml() {",
             "var text = \"\";",
             "return text;",
@@ -52,7 +52,7 @@
         "},",
         "mounted() {",
           "setTimeout(() => {",
-            "this.setCode;",
+            "this.setCode();",
           "});",
         "},",
       "};",
@@ -61,7 +61,3 @@
     "description": "vuepress交互笔记"
   }
 }
-
-
-
-
