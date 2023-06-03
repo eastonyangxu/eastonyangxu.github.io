@@ -35,6 +35,8 @@
     "vuepress-theme-vdoing": "^1.12.8"
   },
   "dependencies": {
-    "async-validator": "^1.11.5"
+    "async-validator": "^1.11.5",
+    "node-sass": "^8.0.0",
+    "sass-loader": "^10.0.0"
   }
 }
