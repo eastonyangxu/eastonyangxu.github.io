@@ -49,7 +49,10 @@ export const NavItems4ZH: NavItem[] = [
   {
     text: "更多",
     link: "/more/",
-    items: [{ text: "草稿", link: "/note/tmp/" }],
+    items: [
+      { text: "摄影", link: "/photo/" },
+      { text: "草稿", link: "/note/tmp/" },
+    ],
   },
   {
     text: "索引",
