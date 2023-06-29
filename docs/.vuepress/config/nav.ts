@@ -30,7 +30,10 @@ export const NavItems4ZH: NavItem[] = [
   {
     text: "数据库",
     link: "/database/",
-    items: [{ text: "Mysql", link: "/note/mysql/" }],
+    items: [
+      { text: "Mysql", link: "/note/mysql/" },
+      { text: "Elasticsearch", link: "/note/es/" },
+    ],
   },
   {
     text: "服务器",
