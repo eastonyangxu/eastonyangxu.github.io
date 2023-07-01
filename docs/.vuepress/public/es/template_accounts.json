@@ -1,0 +1,49 @@
+{
+  "template": "accounts-*",
+  "settings": {
+    "index.number_of_shards": 1,
+    "index.number_of_replicas": 0,
+    "index.max_result_window": 100000,
+    "index.translog.durability": "async",
+    "index.translog.sync_interval": "60s",
+    "index.translog.flush_threshold_size": "1024mb",
+    "index.refresh_interval": "60s"
+  },
+  "mappings": {
+    "properties": {
+      "account_number": {
+        "type": "long"
+      },
+      "balance": {
+        "type": "long"
+      },
+      "firstname": {
+        "type": "keyword"
+      },
+      "lastname": {
+        "type": "keyword"
+      },
+      "age": {
+        "type": "short"
+      },
+      "gender": {
+        "type": "keyword"
+      },
+      "address": {
+        "type": "text"
+      },
+      "employer": {
+        "type": "keyword"
+      },
+      "email": {
+        "type": "keyword"
+      },
+      "city": {
+        "type": "keyword"
+      },
+      "state": {
+        "type": "keyword"
+      }
+    }
+  }
+}
