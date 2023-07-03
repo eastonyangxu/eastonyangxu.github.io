@@ -28,7 +28,7 @@ const htmlModule: VdoingThemeConfig["htmlModules"] = {
       font-weight: bold;
       margin: 0 0 8px 0;
     ">头像</p>
-    <img src="/avatar.png"  style="width:100%;" />
+    <img src="/avatar-git.png"  style="width:100%;" />
     这里可以添加自定义页面，插入广告等页面
     </p>
     </div>`,
