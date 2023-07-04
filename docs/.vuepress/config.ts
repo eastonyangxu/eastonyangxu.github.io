@@ -146,7 +146,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
         {
           iconClass: "icon-youjian",
           title: "发邮件",
-          link: "easton_00@163.com",
+          link: "mailto:easton_00@163.com",
         },
       ],
     },
