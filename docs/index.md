@@ -34,6 +34,7 @@ pageClass: vdoing-index-class
 今天心情 😊 真不错，又是美丽的一天 🌈！❤️‍🔥
 
 <ClientOnly>
+  <WebInfo/>
   <IndexBigImg />
   <!-- <Fantasy index="true" /> -->
 </ClientOnly>

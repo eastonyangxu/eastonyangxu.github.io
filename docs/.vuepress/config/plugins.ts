@@ -6,7 +6,7 @@ export default <UserPlugins>[
   [
     {
       name: "custom-plugins",
-      globalUIComponents: ["BlockToggle"], // 2.x 版本 globalUIComponents 改名为 clientAppRootComponentFiles
+      globalUIComponents: ["BlockToggle", "PageInfo"], // 2.x 版本 globalUIComponents 改名为 clientAppRootComponentFiles
     },
   ],
   // 支持图片缩放
