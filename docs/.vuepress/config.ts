@@ -36,6 +36,10 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
           "博客,个人技术博客,前端,前端开发,前端框架,web前端,前端面试题,技术文档,学习,面试,JavaScript,js,ES6,TypeScript,vue,python,css3,html5,Node,git,github,markdown,django",
       },
     ],
+    [
+      "script",
+      { src: "https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js" },
+    ],
   ],
 
   locales: {
