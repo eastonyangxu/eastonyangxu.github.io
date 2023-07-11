@@ -31,6 +31,13 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
     [
       "meta",
       {
+        name: "google-site-verification",
+        content: "i9mUffGl_mks-vKBwSYEPDq9rdr4NUc3PKwe8Hmwbb0",
+      },
+    ],
+    [
+      "meta",
+      {
         name: "keywords",
         content:
           "博客,个人技术博客,前端,前端开发,前端框架,web前端,前端面试题,技术文档,学习,面试,JavaScript,js,ES6,TypeScript,vue,python,css3,html5,Node,git,github,markdown,django",
