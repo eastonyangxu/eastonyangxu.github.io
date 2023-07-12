@@ -1,0 +1,49 @@
+{
+  "template": "monitor.snmp-*",
+  "settings": {
+    "index.number_of_shards": 1,
+    "index.number_of_replicas": 0,
+    "index.max_result_window": 100000,
+    "index.translog.durability": "async",
+    "index.translog.sync_interval": "60s",
+    "index.translog.flush_threshold_size": "1024mb",
+    "index.refresh_interval": "60s"
+  },
+  "mappings": {
+    "properties": {
+      "dst_ip": {
+        "type": "keyword"
+      },
+      "dst_ip_int": {
+        "type": "long"
+      },
+      "host_id": {
+        "type": "keyword"
+      },
+      "sys_name": {
+        "type": "keyword"
+      },
+      "syscpu_usage": {
+        "type": "double"
+      },
+      "sysmem_usage": {
+        "type": "double"
+      },
+      "ifin_octets_total": {
+        "type": "double"
+      },
+      "ifout_octets_total": {
+        "type": "double"
+      },
+      "ifin_octets_average": {
+        "type": "double"
+      },
+      "ifout_octets_average": {
+        "type": "double"
+      },
+      "record_time": {
+        "type": "long"
+      }
+    }
+  }
+}
