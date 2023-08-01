@@ -32,6 +32,7 @@ export const NavItems4ZH: NavItem[] = [
     link: "/database/",
     items: [
       { text: "Mysql", link: "/note/mysql/" },
+      { text: "PostgreSQL", link: "/note/pgsql/" },
       { text: "Elasticsearch", link: "/note/es/" },
       { text: "MongoDB", link: "/note/mongo/" },
     ],
