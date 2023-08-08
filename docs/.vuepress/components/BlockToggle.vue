@@ -46,10 +46,12 @@ export default {
           let wrapper = item.getElementsByClassName("line-numbers-wrapper")[0];
           // 创建箭头元素
           const div = document.createElement("div");
-          // 默认先隐藏代码块
-          div.className = "expand icon-xiangxiajiantou iconfont";
-          if (!item.getAttribute("bolock-hidden")) {
+          if (item.getAttribute("bolock-hidden")) {
+            // 隐藏代码块
             this.hiddenBlock(div, item, pre, wrapper, hiddenHeight);
+          } else {
+            // 不隐藏代码块
+            div.className = "expand icon-xiangxiajiantou iconfont";
           }
           // 箭头点击事件
           div.onclick = () => {
@@ -129,10 +131,10 @@ export default {
           "language".length + 1,
           element.className.indexOf(" ")
         );
-        // 默认是否隐藏代码块，-N 表示默认不隐藏，如果不设置默认隐藏
-        if (language.indexOf("-N") != -1) {
+        // 默认是否隐藏代码块，-Y 表示隐藏，如果不设置默认不隐藏
+        if (language.indexOf("-H") != -1) {
           element.setAttribute("bolock-hidden", true);
-          language = language.replace("-N", "");
+          language = language.replace("-H", "");
         }
         // 输出案例时需要，如果使用原有语言可能会直接格式化后输出，所以可以添加example
         language = language.replace("example", "");
@@ -140,9 +142,9 @@ export default {
 
         element.setAttribute("data-language", language);
       }
-      // 默认是否隐藏代码块，-N 表示默认不隐藏，如果不设置默认隐藏
+      // 默认是否隐藏代码块，-Y 表示隐藏，如果不设置默认不隐藏
       let className = element.className;
-      if (className.indexOf(" -N ") != -1 || className.indexOf(" -n ") != -1) {
+      if (className.indexOf(" -H ") != -1 || className.indexOf(" -h ") != -1) {
         element.setAttribute("bolock-hidden", true);
       }
     },

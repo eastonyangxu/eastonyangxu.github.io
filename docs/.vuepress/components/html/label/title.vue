@@ -44,7 +44,7 @@ hr {
       </el-checkbox-group>
     </div>
     <div style="width: 100%">
-      <div class="language-html -N line-numbers-mode">
+      <div class="language-html line-numbers-mode">
         <pre class="language-html"><code ref="code"></code></pre>
       </div>
     </div>

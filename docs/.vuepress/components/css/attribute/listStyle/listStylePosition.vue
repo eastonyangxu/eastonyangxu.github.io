@@ -32,7 +32,7 @@
       </el-radio-group>
     </div>
     <div style="width: 100%">
-      <div class="language-css -N line-numbers-mode">
+      <div class="language-css line-numbers-mode">
         <pre class="language-css"><code ref="code"></code></pre>
       </div>
     </div>
