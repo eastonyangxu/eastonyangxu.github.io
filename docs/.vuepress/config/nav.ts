@@ -22,6 +22,7 @@ export const NavItems4ZH: NavItem[] = [
     link: "/web/",
     ariaLabel: "前端知识",
     items: [
+      { text: "Mdn", link: "https://developer.mozilla.org/zh-CN/" },
       { text: "HTML", link: "/note/html/" },
       { text: "CSS", link: "/note/css/" },
       { text: "JavaScript", link: "/note/javascript/" },
