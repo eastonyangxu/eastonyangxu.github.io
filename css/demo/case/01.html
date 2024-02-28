@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <header>
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Raleway:400,400i,700");
+
+      body {
+        display: flex;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background: rgba(25, 25, 49, 0.53);
+      }
+
+      .reveal {
+        position: relative;
+        display: flex;
+        color: #6ee1f5;
+        font-size: 2em;
+        font-family: Raleway, sans-serif;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        white-space: pre;
+      }
+
+      .reveal span {
+        opacity: 0;
+        transform: scale(0);
+        animation: fadeIn 3s infinite alternate;
+      }
+
+      .reveal::before,
+      .reveal::after {
+        position: absolute;
+        content: "";
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        height: 100%;
+        background: white;
+        opacity: 0;
+        transform: scale(0);
+      }
+
+      .reveal::before {
+        left: 50%;
+        animation: slideLeft 3s cubic-bezier(0.7, -0.6, 0.3, 1.5) infinite
+          alternate;
+      }
+
+      .reveal::after {
+        right: 50%;
+        animation: slideRight 3s cubic-bezier(0.7, -0.6, 0.3, 1.5) infinite
+          alternate;
+      }
+
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      @keyframes slideLeft {
+        to {
+          left: -6%;
+          opacity: 1;
+          transform: scale(0.9);
+        }
+      }
+
+      @keyframes slideRight {
+        to {
+          right: -6%;
+          opacity: 1;
+          transform: scale(0.9);
+        }
+      }
+    </style>
+  </header>
+  <body>
+    <div class="reveal">爱生活，爱学习</div>
+  </body>
+  <script type="text/javascript">
+    let duration = 0.8;
+    let delay = 0.3;
+    let revealText = document.querySelector(".reveal");
+    let letters = revealText.textContent.split("");
+    revealText.textContent = "";
+    let middle = letters.filter((e) => e !== " ").length / 2;
+    letters.forEach((letter, i) => {
+      let span = document.createElement("span");
+      span.textContent = letter;
+      span.style.animationDelay = `${delay + Math.abs(i - middle) * 0.1}s`;
+      revealText.append(span);
+    });
+  </script>
+</html>

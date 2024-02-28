@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <title>向左滚动轮播</title>
+    <style>
+      body {
+        display: flex;
+        min-height: 100vh;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background: rgba(25, 25, 49, 0.53);
+      }
+      .slide-02 {
+        width: 20rem;
+        position: relative;
+        overflow: hidden; /*超过的隐藏*/
+      }
+      .slide-ul-02 {
+        display: flex;
+        list-style: none;
+        width: 20rem;
+        height: 13.3rem;
+        position: relative;
+        padding: 0;
+        margin: 0;
+      }
+      .slide-02-in {
+        flex: 0 0 auto;
+        width: 20rem; /* 每个项目的宽度 */
+        margin-right: 10px; /*项目之间的间距*/
+      }
+      img {
+        height: 100%;
+        width: 100%;
+      }
+
+      .circle-02 {
+        display: flex;
+        flex-direction: row;
+        padding: 0;
+        margin: 0;
+        position: absolute;
+        bottom: 5%;
+        right: 40%;
+      }
+      .circle-02 li {
+        width: 8px;
+        height: 8px;
+        border: 2px solid rgba(255, 255, 255, 0.5);
+        margin: 0 3px;
+        border-radius: 50%;
+        cursor: pointer;
+        list-style-type: none; /*隐藏li的数字*/
+      }
+      .current {
+        background-color: #ffffff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slide-02">
+      <ul class="slide-ul-02">
+        <li class="slide-02-in"><img src="/css/demo/img/motmot.jpg" /></li>
+        <li class="slide-02-in"><img src="/css/demo/img/spider.jpg" /></li>
+        <li class="slide-02-in"><img src="/css/demo/img/panda.jpg" /></li>
+        <li class="slide-02-in"><img src="/css/demo/img/dragonfly.jpg" /></li>
+      </ul>
+      <!-- 小圆圈 -->
+      <ol class="circle-02"></ol>
+    </div>
+  </body>
+  <script>
+    var slideUl = document.querySelector(".slide-ul-02");
+    var slideItems = document.querySelectorAll(".slide-02-in");
+    var totalLength = slideItems.length; // 轮播图个数
+    var slideWidth = slideItems[0].offsetWidth;
+    var currentIndex = 0;
+    var delay = 3000; //切换时间
+    var currentPosition = 1;
+    var ul = document.querySelector(".slide-02 ul");
+    var ol = document.querySelector(".circle-02");
+    var intval = null;
+
+    function init() {
+      // 将轮播图第一项克隆, 并放在最后
+      const cloneFirst = document
+        .querySelectorAll(".slide-02-in")[0]
+        .cloneNode(true);
+      slideUl.appendChild(cloneFirst);
+      // 因为 totalLength 是原始的轮播图个数, 所以可以正确定位到原来的轮播图最后一个
+      const cloneLast = document
+        .querySelectorAll(".slide-02-in")
+        [totalLength - 1].cloneNode(true);
+      slideUl.insertBefore(cloneLast, slideUl.firstChild);
+      // 设置轮播图总长, 加上新加的两个
+      slideUl.style.width = (totalLength + 2) * (slideWidth + 10) + "px";
+      // 当前轮播图位置分布为  5 12345 1
+      // 初始化轮播图为 1 位置
+      slideUl.style.transform = `translateX(${
+        -currentPosition * (slideWidth + 10)
+      }px)`;
+      ol.children[currentIndex].className = "current"; // 第一次打开页面选中的圆圈
+    }
+    /**
+     * 轮播
+     */
+    function goSlider(slideIndex, delayEase = 1500) {
+      for (var i = 0; i < ol.children.length; i++) {
+        ol.children[i].className = "";
+      }
+      ol.children[slideIndex].className = "current";
+
+      slideIndex++;
+      currentPosition = slideIndex; // 同步下标
+      // 添加过渡效果, delay 需要一致; 位置偏移一个单位
+      if (delayEase) {
+        slideUl.style.transition = `transform ${delay / delayEase}s ease`;
+      } else {
+        // 点击的时候清空过渡效果
+        slideUl.style.transition = "";
+      }
+      slideUl.style.transform = `translateX(${
+        -slideIndex * (slideWidth + 10)
+      }px)`;
+      // 添加正在切换的class, 给上面 animate 方法用来判断
+      slideUl.classList.add("isAnimating");
+      // 切换结束, 清空状态, 清空过渡效果
+      setTimeout(() => {
+        slideUl.style.transition = "";
+        slideUl.classList.remove("isAnimating");
+      }, delay);
+    }
+
+    /**
+     * 切换动画
+     */
+    function animate() {
+      // 如果正在切换, 则不动
+      if (slideUl.classList.contains("isAnimating")) return;
+      // 如果在最后一项, 则将定位改为第 0 项, 并设置位置, 此时没有 transition 动画, 秒切
+      if (currentPosition === totalLength) {
+        currentPosition = 0;
+        slideUl.style.transform = `translateX(0)`;
+      }
+      // 轮播
+      setTimeout(() => {
+        goSlider(currentPosition);
+      }, 20);
+    }
+
+    /**
+     * 开始轮播
+     */
+    function start() {
+      intval = setInterval(animate, delay);
+    }
+
+    for (var i = 0; i < ul.children.length; i++) {
+      // 创建一个li
+      var li = document.createElement("li");
+      // 记录当前小圆圈的索引号
+      li.setAttribute("index", i);
+      // 把li放到ol里
+      ol.appendChild(li);
+      // 为小圆圈添加点击事件
+      li.addEventListener("click", function () {
+        // 干掉所有人
+        for (var i = 0; i < ol.children.length; i++) {
+          ol.children[i].className = "";
+        }
+        // 留下我自己
+        this.className = "current";
+        // 点击圆圈，变换图片
+        var index = this.getAttribute("index");
+        currentPosition = index; // 同步图片和圆圈的下标
+        goSlider(index, 0);
+        if (intval) {
+          clearInterval(intval); // 清除计时器
+          start(); // 重新计时
+        }
+      });
+    }
+    init();
+    start();
+  </script>
+</html>

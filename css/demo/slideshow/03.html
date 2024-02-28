@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>轮播</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+
+    <style>
+      body,
+      html {
+        height: 100%;
+        background: rgba(25, 25, 49, 0.53);
+        overflow: hidden;
+      }
+
+      .slideshow {
+        position: relative;
+        height: 100%;
+        z-index: 1;
+      }
+
+      .slider {
+        height: 100%;
+        overflow: hidden;
+      }
+
+      .slider .item {
+        overflow: hidden;
+        position: relative;
+        height: 100%;
+      }
+
+      .slider .item img {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        z-index: 1;
+        left: 50%;
+        transform: translateX(-50%) scale(1.4);
+        opacity: 0.4;
+        filter: blur(50px) saturate(3);
+      }
+
+      .slider-2 {
+        position: absolute;
+        z-index: 11;
+        top: 50%;
+        left: 50%;
+        width: 50%;
+        height: 0%;
+        padding-bottom: 32%;
+        transform: translate(-50%, -50%);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+      }
+
+      .slider-2:before {
+        content: "";
+        position: absolute;
+        left: -1%;
+        bottom: -1%;
+        width: 102%;
+        height: 50%;
+        background-image: linear-gradient(
+          0deg,
+          rgba(0, 0, 0, 0.7),
+          rgba(0, 0, 0, 0)
+        );
+        z-index: 1;
+        pointer-events: none;
+      }
+
+      .slider-2 .item {
+        height: 0;
+        padding-bottom: 16%;
+        transform: scale(1.02);
+        background: #333;
+      }
+
+      .slider-2 .item.slick-active {
+        z-index: 10;
+      }
+
+      .slider-2 .item img {
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(1);
+        height: auto;
+        width: 422px;
+        opacity: 1;
+        filter: none;
+      }
+
+      .slider-2 .slick-dots {
+        bottom: 15px;
+        z-index: 1;
+        text-align: center;
+        position: absolute;
+        padding: 0;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+      }
+
+      .slider-2 .slick-dots li {
+        display: inline;
+        margin: 0;
+        padding: 0;
+      }
+
+      .slider-2 .slick-dots li button {
+        border: none;
+        background: none;
+        text-indent: -9999px;
+        font-size: 0;
+        width: 20px;
+        height: 20px;
+        outline: none;
+        position: relative;
+        z-index: 1;
+        cursor: pointer;
+      }
+
+      .slider-2 .slick-dots li button:before {
+        content: "";
+        width: 4px;
+        height: 4px;
+        background: #fff;
+        border-radius: 4px;
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0.7;
+        transition: all 0.5s ease-out;
+      }
+
+      .slider-2 .slick-dots li.slick-active button:before {
+        transform: translate(-50%, -50%) scale(1.4);
+        opacity: 1;
+      }
+
+      .slick-arrow {
+        position: absolute;
+        z-index: 10;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        border: none;
+        background: none;
+        cursor: pointer;
+        font-size: 0;
+        outline: none;
+        width: 40px;
+        height: 40px;
+      }
+
+      .slick-arrow:before {
+        content: "";
+        width: 30px;
+        height: 30px;
+        background-color: #fff;
+        mask-image: url("/css/next.png");
+        display: block;
+        opacity: 0.5;
+        transition: all 0.5s ease-out;
+      }
+
+      .slick-arrow.slick-next {
+        left: auto;
+        right: 10px;
+      }
+
+      .slick-arrow.slick-next:before {
+        transform: rotate(180deg);
+      }
+
+      .slick-arrow:hover:before {
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slideshow">
+      <div class="slider slider-1">
+        <div class="item">
+          <img src="/css/demo/img/motmot.jpg" />
+        </div>
+        <div class="item">
+          <img src="/css/demo/img/spider.jpg" />
+        </div>
+        <div class="item">
+          <img src="/css/demo/img/panda.jpg" />
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script
+    type="text/javascript"
+    src="https://code.jquery.com/jquery-1.11.0.min.js"
+  ></script>
+
+  <script
+    type="text/javascript"
+    src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"
+  ></script>
+
+  <script
+    type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+  ></script>
+  <script>
+    function slideshow() {
+      // clone
+      $(".slider-1")
+        .clone()
+        .removeClass("slider-1")
+        .addClass("slider-2")
+        .insertAfter($(".slider"));
+
+      // set first
+      $(".slider-1").slick({
+        draggable: false,
+        dots: false,
+        infinite: true,
+        responsive: true,
+        asNavFor: ".slider-2",
+        touchThreshold: 20,
+        speed: 1000,
+        fade: true,
+        autoplay: true,
+      });
+
+      // set second
+      $(".slider-2").slick({
+        dots: true,
+        infinite: true,
+        responsive: true,
+        asNavFor: ".slider-1",
+        arrows: false,
+        speed: 1000,
+        easing: "easeInOutQuart",
+        autoplay: true,
+      });
+    }
+
+    $(function () {
+      slideshow();
+      setTimeout(function () {
+        $(".slider-1 .slick-next").click();
+      }, 1000);
+    });
+  </script>
+</html>
