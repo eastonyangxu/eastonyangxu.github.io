@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[39],{374:function(n,t,e){},462:function(n,t,e){"use strict";e(374)},515:function(n,t,e){"use strict";e.r(t);var o={name:"demo"},s=(e(462),e(4)),c=Object(s.a)(o,(function(){return(0,this._self._c)("h1",[this._v("这是我第一个自定义的components")])}),[],!1,null,"6981b928",null);t.default=c.exports}}]);

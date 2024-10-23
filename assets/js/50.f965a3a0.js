@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[50],{518:function(t,s,n){"use strict";n.r(s);var i={mounted:function(){postscribe("#gist",'<script src="https://gist.github.com/eastonyangxu/a878dcda4b6a0b892039e4458d69ad20.js"><\/script>')}},c=n(4),u=Object(c.a)(i,(function(){return(0,this._self._c)("div",{attrs:{id:"gist"}})}),[],!1,null,null,null);s.default=u.exports}}]);
